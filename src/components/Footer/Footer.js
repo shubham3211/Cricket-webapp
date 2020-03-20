@@ -41,7 +41,8 @@ function Footer() {
                 <Grid item xs={4}>
                   <Grid container>
                     <Grid item xs={12}>
-                      <img 
+                      <img
+                        alt=""
                         src={require("../../assets/images/darkLogo.png")}
                         style={{width: "80px", height: "70px"}} />
                     </Grid>

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Grid, Typography, Box } from '@material-ui/core'
+import { Grid, Typography } from '@material-ui/core'
 import { Link } from 'react-router-dom';
 
 let postItemContentStyle = {
@@ -24,7 +24,10 @@ function PostItem({
       <Grid item xs={12}>
         <Grid container spacing={3}>
           <Grid item xs={imageSize} style={{maxWidth: imageWidth+'px', height: imageHeight+'px'}}>
-            <img src={imgSrc} style={{
+            <img 
+              src={imgSrc}
+              alt=""
+              style={{
               width: '100%',
               height: '100%',
               borderRadius: '8px'}} />

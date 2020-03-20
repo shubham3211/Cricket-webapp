@@ -1,6 +1,5 @@
 import React from 'react'
 import { Grid, Typography, Box } from '@material-ui/core'
-import { useRecentPostContext } from '../../CricketAppContext'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faClock, faUserCircle, faEye } from '@fortawesome/free-solid-svg-icons';
 import { monthNames } from '../../assets/monthNames';

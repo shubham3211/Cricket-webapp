@@ -13,7 +13,7 @@ const RelatedPostContext = createContext();
 
 function useRelatedPostContext() {
   let context = useContext(RelatedPostContext);
-  if(context == undefined){
+  if(context === undefined){
     throw new Error('useRelatedPostContext must be used within CricketAppContext');
   }
   return context;

@@ -9,7 +9,7 @@ import { Redirect } from 'react-router-dom';
 
 function getPost(id, posts) {
   for(let i=0;i<posts.length;i++){
-    if(posts[i].id == id){
+    if(posts[i].id === id){
       return posts[i];
     }
   }

@@ -24,7 +24,7 @@ function a11yProps(index){
 function TabPanel({posts, value, index}) {
   
   return (
-    <Box value={value} hidden={value!=index} index={index}>
+    <Box value={value} hidden={value!==index} index={index}>
       {posts.map((post, index) => (
         <Box mt={4} key={index}>
           <PostItem
