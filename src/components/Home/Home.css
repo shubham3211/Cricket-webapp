@@ -1,0 +1,9 @@
+.post-tab{
+  margin-left: 43px;
+}
+
+@media only screen and (max-width: 1280px){
+  .post-tab{
+    margin-left: 0px;
+  }
+}

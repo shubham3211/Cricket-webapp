@@ -1,0 +1,17 @@
+@keyframes slide {
+  from {
+    left: 0px; 
+  }
+  to { 
+    left: calc(100% - 100px);
+  }
+}
+
+.slider{
+  animation-name: slide;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+  position: relative;
+  animation-direction: alternate;
+  width: 100px;
+}
