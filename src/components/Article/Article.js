@@ -5,6 +5,7 @@ import { useRecentPostContext } from '../../CricketAppContext'
 import ArticleContent from '../ArticleContent/ArticleContent';
 import Tags from '../Tags/Tags';
 import RelatedPost from '../RelatedPost/RelatedPost';
+import CircularProgress from '@material-ui/core/CircularProgress';
 
 function getPost(id, posts) {
   for(let i=0;i<posts.length;i++){
@@ -19,7 +20,9 @@ function Article(props) {
   let post = getPost(props.match.params.id, recentPost);
   if(!recentPost.length){
     return (
-      <div></div>
+      <Grid container justify="center" alignItems="center" style={{height: '50vh'}}>
+        <CircularProgress />
+      </Grid>
     )
   }
   return (

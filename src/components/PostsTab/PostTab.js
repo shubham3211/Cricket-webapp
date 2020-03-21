@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import {useRecentPostContext, useHotPostContext} from '../../CricketAppContext';
-import { Grid, Box, Typography } from '@material-ui/core';
+import { Grid, Box, Typography, CircularProgress } from '@material-ui/core';
 import PostItem from '../PostItem/PostItem';
 import { monthNames } from '../../assets/monthNames';
 import Tabs from '@material-ui/core/Tabs';
@@ -54,6 +54,13 @@ function PostTab() {
   let recentPosts = useRecentPostContext();
   let hotPosts = useHotPostContext();
   let [tabValue, setTabValue] = useState(0);
+  if(!recentPosts || !recentPosts.length){
+    return (
+      <Grid container justify="center">
+        <CircularProgress />
+      </Grid>
+    )
+  }
   return (
     <Grid container>
       <Grid item xs={12}>

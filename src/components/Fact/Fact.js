@@ -1,11 +1,11 @@
 import React from 'react'
 import { Grid, Typography, Box, Divider } from '@material-ui/core'
 import { useFactContext } from '../../CricketAppContext';
-import './Fact.css'
+import './Fact.css';
+import CircularProgress from '@material-ui/core/CircularProgress';
 
 function Fact() {
   let fact = useFactContext();
-  console.log('fact :', fact);
   if(fact && fact.length){
     fact=fact[0].fact;
   }
@@ -13,7 +13,7 @@ function Fact() {
     <Grid container>
       <Grid item xs={12}>
         <Box p={2} style={{backgroundColor: "#1e1e1e", color: "#fff", borderRadius: "15px"}}>
-          <Grid container>
+          {fact && fact.length ? <Grid container>
             <Grid item xs={12}>
               <Typography variant="h6">
                 Did You Know !!!
@@ -29,7 +29,11 @@ function Fact() {
                 {fact}
               </Typography>
             </Grid>
-          </Grid>
+          </Grid> : (
+            <Grid container justify="center">
+              <CircularProgress />
+            </Grid>
+          )}
         </Box>
       </Grid>
     </Grid>

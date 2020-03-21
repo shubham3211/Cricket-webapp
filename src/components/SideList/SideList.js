@@ -1,5 +1,5 @@
 import React from 'react'
-import { Grid, Box, Divider, Typography } from '@material-ui/core'
+import { Grid, Box, Divider, Typography, CircularProgress } from '@material-ui/core'
 import PostItem from '../PostItem/PostItem';
 import { monthNames } from '../../assets/monthNames';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -10,6 +10,14 @@ const getFullDate = (postDate) => {
   let month = monthNames[date.getMonth()];
   let day = date.getDate();
   return `${month.slice(0, 3)} ${day}`
+}
+
+function getLoadingScreen() {
+  return (
+    <Grid container justify="center">
+      <CircularProgress />
+    </Grid>
+  )
 }
 
 function SideList({posts, heading}) {
@@ -27,7 +35,7 @@ function SideList({posts, heading}) {
           </Grid>
         </Grid>
         <Box mt={5}>
-          {
+          {posts.length ?
             posts.map((post, index) => (
               <Grid key={index}>
                 <PostItem 
@@ -51,7 +59,7 @@ function SideList({posts, heading}) {
                 </Box>
               </Grid>
             ))
-          }
+          : getLoadingScreen()}
         </Box>
       </Grid>
     </Grid>
