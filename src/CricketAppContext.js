@@ -1,9 +1,5 @@
 import React, { useContext, createContext } from 'react';
-import fact from './assets/fact.json';
-import hotPost from './assets/hot-post.json';
-import recentPost from './assets/recentPost.json';
-import timelessPost from './assets/timelessPost.json';
-import relatedPost from './assets/relatedPost.json';
+import useApi from './useApi';
 
 const RecentPostContext = createContext();
 const TimelessPostContext = createContext();
@@ -51,13 +47,23 @@ function useFactContext(){
   return context;
 }
 
-function CricketAppContext({children}) {
+function CricketAppContext({children, ...rest}) {
+  console.log('context app rendering');
+  let [recentPost] = useApi('/recent-post');
+  let [timelessPost] = useApi('/timeless-post');
+  let [hotPost] = useApi('/hot-post');
+  let [fact] = useApi('/fact');
+  console.log('rest :', rest);
+  recentPost = recentPost.map((item) => item.post);
+  timelessPost = timelessPost.map((item) => item.post);
+  hotPost = hotPost.map((item) => item.post);
+
   return (
-    <RecentPostContext.Provider value={recentPost.articles}>
-      <TimelessPostContext.Provider value={timelessPost.articles}>
-        <HotPostContext.Provider value={hotPost.hot_articles}>
-          <FactContext.Provider value={fact.facts[0].content}>
-            <RelatedPostContext.Provider value={relatedPost}>
+    <RecentPostContext.Provider value={recentPost}>
+      <TimelessPostContext.Provider value={timelessPost}>
+        <HotPostContext.Provider value={hotPost}>
+          <FactContext.Provider value={fact}>
+            <RelatedPostContext.Provider value={recentPost.slice(0, 6)}>
               {children}
             </RelatedPostContext.Provider>
           </FactContext.Provider>

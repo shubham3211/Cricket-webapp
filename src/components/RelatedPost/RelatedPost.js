@@ -19,23 +19,22 @@ const getFullDate = (postDate) => {
 
 const getPosts = (posts) => {
   return posts.map((post, index) => (
-    <Grid key={index}>
-      <PostItem
-        title={post.title} 
-        imgSrc={`https://cricsurf.com/files/${post.image}`}
-        imageWidth={246}
-        imageHeight={182}
-        titleVariant="h6"
-        imageSize={12}
-        id={post.id}>
-        <Typography>
-          {post.author.name}
-        </Typography>
-        <Typography>
-          {getFullDate(post.created_on)}
-        </Typography>
-      </PostItem>
-    </Grid>
+    <PostItem
+      key={index}
+      title={post.title} 
+      imgSrc={`https://cricsurf.com/files/${post.image}`}
+      imageWidth={246}
+      imageHeight={182}
+      titleVariant="h6"
+      imageSize={12}
+      id={post.id}>
+      <Typography>
+        {post.author.name}
+      </Typography>
+      <Typography>
+        {getFullDate(post.created_on)}
+      </Typography>
+    </PostItem>
   ))
 }
 
@@ -52,7 +51,7 @@ function RelatedPost() {
   return (
     <>
       <Grid container>
-        <Grid xs={12}>
+        <Grid item xs={12}>
           <Box mt={4} mb={4}>
             <Grid container alignItems="center" justify="space-between">
               <Grid item xs>

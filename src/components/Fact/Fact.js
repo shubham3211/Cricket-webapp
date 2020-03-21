@@ -5,6 +5,10 @@ import './Fact.css'
 
 function Fact() {
   let fact = useFactContext();
+  console.log('fact :', fact);
+  if(fact && fact.length){
+    fact=fact[0].fact;
+  }
   return (
     <Grid container>
       <Grid item xs={12}>

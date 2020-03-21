@@ -5,7 +5,6 @@ import { useRecentPostContext } from '../../CricketAppContext'
 import ArticleContent from '../ArticleContent/ArticleContent';
 import Tags from '../Tags/Tags';
 import RelatedPost from '../RelatedPost/RelatedPost';
-import { Redirect } from 'react-router-dom';
 
 function getPost(id, posts) {
   for(let i=0;i<posts.length;i++){
@@ -17,9 +16,11 @@ function getPost(id, posts) {
 
 function Article(props) {
   let recentPost = useRecentPostContext();
-  let post = getPost(props.match.params.id, recentPost)
-  if(!post){
-    return <Redirect to="/" />
+  let post = getPost(props.match.params.id, recentPost);
+  if(!recentPost.length){
+    return (
+      <div></div>
+    )
   }
   return (
     <Grid container>

@@ -32,7 +32,7 @@ function PostItem({
               height: '100%',
               borderRadius: '8px'}} />
           </Grid>
-          <Grid item xs={Math.abs(12-imageSize)}>
+          <Grid item xs={Math.abs(12-imageSize)|| 12}>
             <Grid container spacing={1}>
               <Grid item xs={12}>
                 <Link style={{color: "black", textDecoration: "none"}} to={`/post/${id}`}>
